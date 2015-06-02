@@ -1,40 +1,35 @@
-========================================================================
-    CONSOLE APPLICATION : GroupsInMatrix Project Overview
-========================================================================
+So the first question that i was thinking was this: 
 
-AppWizard has created this GroupsInMatrix application for you.
+========================================================================================================================================================================
 
-This file contains a summary of what you will find in each of the files that
-make up your GroupsInMatrix application.
+Given a matrix with 1s and 0s, please find the number of groups of 1s. A group is defined by horizontally or vertically adjacent 1s.
+
+Example Input:
+
+1  1 0  0  1 
+1  0  0  1  0
+1  1  0  1  0
 
 
-GroupsInMatrix.vcxproj
-    This is the main project file for VC++ projects generated using an Application Wizard.
-    It contains information about the version of Visual C++ that generated the file, and
-    information about the platforms, configurations, and project features selected with the
-    Application Wizard.
+1  1 0  0  1 
+1  0  0  1  0
+1  1  0  1  0
 
-GroupsInMatrix.vcxproj.filters
-    This is the filters file for VC++ projects generated using an Application Wizard. 
-    It contains information about the association between the files in your project 
-    and the filters. This association is used in the IDE to show grouping of files with
-    similar extensions under a specific node (for e.g. ".cpp" files are associated with the
-    "Source Files" filter).
 
-GroupsInMatrix.cpp
-    This is the main application source file.
+So if you see the same colors are the groups.
 
-/////////////////////////////////////////////////////////////////////////////
-Other standard files:
+Groups can be however munch in length and width dont restrict it in that sense.
 
-StdAfx.h, StdAfx.cpp
-    These files are used to build a precompiled header (PCH) file
-    named GroupsInMatrix.pch and a precompiled types file named StdAfx.obj.
+========================================================================================================================================================================
 
-/////////////////////////////////////////////////////////////////////////////
-Other notes:
+Submitting criteria:
 
-AppWizard uses "TODO:" comments to indicate parts of the source code you
-should add to or customize.
 
-/////////////////////////////////////////////////////////////////////////////
+Create a "Git Hub" account if you already have one and know how to use the commands and stuff cool :) else its a good way to learn and actually use it.
+
+Once done, submit that code there and then we can share the repositories and check the codes.
+
+Any thoughts?
+
+
+-Aditya
