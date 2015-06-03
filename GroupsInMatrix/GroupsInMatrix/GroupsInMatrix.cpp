@@ -4,6 +4,7 @@
 //	Each line contains same number of columns as the first row
 //	No line is bigger than 256chars (for getline)
 //	whole matrix fits in memory
+//	I CAN destroy the matrix
 
 //Features:
 //	Space requirement O(N) - Visited Matrix
@@ -16,7 +17,7 @@ using namespace std;
 
 void readMatrix(vector<vector<int>> & v, string fname) {
 	string line;
-	auto myFile = fstream(fname);
+    ifstream myFile(fname);
 
 	while (myFile)
 	{
@@ -42,25 +43,17 @@ void printMatrix(vector<vector<int>> &v) {
 	}
 }
 
-int countGrps(vector<vector<int>> & mat, vector<vector<bool>> & visited, int &counts, int r = 0, int c = 0, bool isRecur = false) {
-	int R = mat.size();
-	int C = mat[0].size();
+void countGrps(vector<vector<int>> & mat, int R, int C, int r = 0, int c = 0) {
 
-	if (!R && !C || (r == R) || (c == C) || r < 0 || c < 0 || !mat[r][c]) return counts;
+	if (!R && !C || (r == R) || (c == C) || r < 0 || c < 0 || !mat[r][c]) return ;
 
-	if (visited[r][c] == false) {
-		visited[r][c] = true;
-		if (mat[r][c] && isRecur == false)
-		{
-			counts = counts + 1;
-		}
-		countGrps(mat, visited, counts, r - 1, c, true);
-		countGrps(mat, visited, counts, r + 1, c, true);
-		countGrps(mat, visited, counts, r, c - 1, true);
-		countGrps(mat, visited, counts, r, c + 1, true);
-	}
+    mat[r][c] = 0;
 
-	return counts;
+    countGrps(mat, R, C, r - 1, c);
+    countGrps(mat, R, C, r + 1, c);
+    countGrps(mat, R, C, r, c - 1);
+    countGrps(mat, R, C, r, c + 1);
+
 }
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -79,20 +72,16 @@ int _tmain(int argc, _TCHAR* argv[])
 	C = mat[0].size();
 	printMatrix(mat);
 
-	auto visited = vector<vector<bool>>{};
-	auto v = vector<bool>(C, false, std::allocator<bool>());
-	for (size_t i = 0; i < R; i++)
-	{
-		visited.push_back(v);
-	}
-
 	int numGrps = { 0 };
 
 	for (size_t i = 0; i < R; i++)
 	{
 		for (size_t j = 0; j < C; j++)
 		{
-			countGrps(mat, visited, numGrps, i, j);
+            if(!mat[i][j]) continue;
+
+            numGrps++;
+			countGrps(mat, R, C, i, j);
 		}
 	}
 
